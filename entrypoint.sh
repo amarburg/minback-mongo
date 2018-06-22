@@ -11,6 +11,6 @@ ARCHIVE="${MINIO_BUCKET}/${DB}-$(date $DATE_FORMAT).archive"
 echo "Dumping $DB to $ARCHIVE"
 echo "> mongodump $ARGS -d $DB"
 
-mongodump $ARGS -d "$DB" --archive | mc pipe "mongodb/$ARCHIVE" || { echo "Backup failed"; mc rm "mongodb/$ARCHIVE"; exit 1; }
+mongodump $MONGODUMP_ARGS  --archive | mc pipe "mongodb/$ARCHIVE" || { echo "Backup failed"; mc rm "mongodb/$ARCHIVE"; exit 1; }
 
 echo "Backup complete"

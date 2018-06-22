@@ -16,7 +16,7 @@ ENV MINIO_ACCESS_KEY=""
 ENV MINIO_SECRET_KEY=""
 ENV MINIO_API_VERSION="S3v4"
 
-ENV DATE_FORMAT="+%Y-%m-%d"
+ENV DATE_FORMAT="+%Y-%m-%d-%H%M%S"
 
 ADD entrypoint.sh /app/entrypoint.sh
 
