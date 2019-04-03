@@ -21,20 +21,21 @@ MINIO_SERVER=https://play.minio.io/
 MINIO_ACCESS_KEY=minio
 MINIO_SECRET_KEY=miniosecret
 MINIO_BUCKET=backups
-```
-
-## Usage
-```
-DB_NAME [OPTIONS...]
-
-Arguments
-  DB_NAME  - The name of the database you wish to backup
-  OPTIONS  - Any additional options you wish to pass to mongodump
+MONGODUMP_ARGS="--uri=mongodb://user:password@host/database"
+DB=database
 ```
 
 ## Configuration
-This container is configured using environment variables, enabling it to easily be started
-manually or automatically and integrate well with Kubernetes' configuration framework.
+This container is configured using environment variables.
+
+#### `DB=dbname`
+Specifies the name of the database.  This is used to name the resulting archive,
+but not to configure mongodump, see $MONGODUMP_ARGS
+
+#### `MONGODUMP_ARGS=`
+Arguments passed to mongodump.   Needs to specify the host, database(s) and
+table(s) to backup.  For example, through the `-d` option or the `--uri`
+option.
 
 #### `MINIO_SERVER=https://play.minio.io/`
 The Minio server you wish to send backups to.

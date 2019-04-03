@@ -5,8 +5,8 @@ RUN wget -O /tmp/mc https://dl.minio.io/client/mc/release/linux-amd64/mc
 RUN chmod +x /tmp/mc
 
 # Then build our backup image
-FROM mongo:3.4
-LABEL maintainer="Benjamin Pannell <admin@sierrasoftworks.com>"
+FROM mongo:4.0
+LABEL maintainer="Aaron Marburg <amarburg@uw.edu>"
 
 COPY --from=0 /tmp/mc /usr/bin/mc
 

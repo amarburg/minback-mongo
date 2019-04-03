@@ -1,6 +1,7 @@
 
-
 TAG=amarburg/minback-mongo
+
+default: all
 
 all: build push
 
